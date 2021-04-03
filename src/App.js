@@ -4,9 +4,10 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import theme from './theme'
 import client from './client'
-import Home from './containers/Home'
-import Leaderboard from './containers/Leaderboard'
-import Submit from './containers/Submit'
+import HomePage from './containers/HomePage'
+import LevelPage from './containers/LevelPage'
+
+const numLevels = 10
 
 const App = () => (
   <Router basename="/ants">
@@ -14,9 +15,11 @@ const App = () => (
       <ApolloProvider client={client}>
         <div className="App">
           <Switch>
-            <Route path="/submit" component={Submit} />
-            <Route path="/leaderboard" component={Leaderboard} />
-            <Route path="/" component={Home} />
+            <Route
+              exact path={`/:level(${[...Array(numLevels + 1).keys()].join("|").substring(2)})`}
+              component={LevelPage}
+            />
+            <Route path="/" component={HomePage} />
           </Switch>
         </div>
       </ApolloProvider>

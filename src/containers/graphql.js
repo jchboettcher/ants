@@ -1,56 +1,40 @@
 import gql from 'graphql-tag'
 
-export const ALL_USERS = gql`
-  query allUsers {
-    allUsers {
+export const STEPS_BOARD = gql`
+  query usersBySteps($level: Int!) {
+    usersBySteps(level: $level) {
       id
-      displayName
-      score
-      updatedAt
+      name
+      level
+      steps
+      crumbs
+      createdAt
     }
   }
 `
 
-export const GET_USER = gql`
-  query userByName($name: String!, $password: String!) {
-    userByName(displayName: $name, password: $password) {
+export const CRUMBS_BOARD = gql`
+  query usersByCrumbs($level: Int!) {
+    usersByCrumbs(level: $level) {
       id
-      displayName
-      rank
-      score
+      name
+      level
+      steps
+      crumbs
+      createdAt
     }
   }
 `
-
-// export const CHECK_PASS = gql`
-//   query checkPass($name: String!, $password: String!) {
-//     checkPass(displayName: $name, password: $password) {
-//       id
-//       displayName
-//       rank
-//       score
-//     }
-//   }
-// `
 
 export const ADD_USER = gql`
   mutation addUser($input: AddUser!) {
     addUser(input: $input) {
       id
-      displayName
-      rank
-      score
-    }
-  }
-`
-
-export const UPDATE_SCORE = gql`
-  mutation updateScore($id: ID!, $score: Int!) {
-    updateScore(id: $id, newScore: $score) {
-      id
-      displayName
-      score
-      rank
+      name
+      level
+      steps
+      crumbs
+      createdAt
     }
   }
 `
