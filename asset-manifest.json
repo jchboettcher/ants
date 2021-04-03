@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/ants/static/js/main.008d4646.chunk.js",
-    "main.js.map": "/ants/static/js/main.008d4646.chunk.js.map",
+    "main.js": "/ants/static/js/main.a6739048.chunk.js",
+    "main.js.map": "/ants/static/js/main.a6739048.chunk.js.map",
     "runtime-main.js": "/ants/static/js/runtime-main.43d18c8f.js",
     "runtime-main.js.map": "/ants/static/js/runtime-main.43d18c8f.js.map",
     "static/js/2.6d1cd5e8.chunk.js": "/ants/static/js/2.6d1cd5e8.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.43d18c8f.js",
     "static/js/2.6d1cd5e8.chunk.js",
-    "static/js/main.008d4646.chunk.js"
+    "static/js/main.a6739048.chunk.js"
   ]
 }
