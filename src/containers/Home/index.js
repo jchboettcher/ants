@@ -3,7 +3,7 @@ import React from 'react'
 const Home = () => {
   return (
     <div>
-      <h1>Welcome to Harvard Puzzle Hunt</h1>
+      <h1>Welcome to Harvard Puzzle Hunt twice!</h1>
     </div>
   )
 }
