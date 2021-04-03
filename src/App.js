@@ -9,7 +9,7 @@ import Leaderboard from './containers/Leaderboard'
 import Submit from './containers/Submit'
 
 const App = () => (
-  <Router>
+  <Router basename="/ants">
     <ThemeProvider theme={theme}>
       <ApolloProvider client={client}>
         <div className="App">
