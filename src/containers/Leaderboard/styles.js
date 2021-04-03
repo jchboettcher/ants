@@ -3,8 +3,8 @@ import styled from 'styled-components'
 export const BackgroundDiv = styled.div`
   display: flex;
   justify-content: center;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   margin: 0;
   background-color: palegoldenrod;
 `
@@ -14,11 +14,13 @@ export const LeaderboardDiv = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   padding: 10px;
+  margin: 20px auto 100px auto;
   /* border: rgba(40,40,40,0.5) 4px; */
   /* border-style: solid; */
+  /* height: auto; */
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  position: fixed;
+  /* position: fixed; */
   top: 2vh;
   /* background-color: rgba(108,128,150,0.8); */
   /* animation: color-change 40s infinite;
