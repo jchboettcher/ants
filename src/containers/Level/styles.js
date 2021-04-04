@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const BackgroundDiv = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: left;
   width: 100%;
   height: 100%;
   margin: 0;

@@ -11,8 +11,12 @@ const LevelCanvas = ({ level, winState, setWin,  stepsState, setSteps, crumbsSta
   let w
   let h
   let sqsize
-  let offsetx
-  let offsety
+  let offright = 30
+  let offleft = 30
+  let offtop = 80
+  let offbottom = 30
+  let bWidth = 50.25
+  let bHeight = 21
 
   const gridStr = gridStrs[level-1]
 
@@ -27,21 +31,101 @@ const LevelCanvas = ({ level, winState, setWin,  stepsState, setSteps, crumbsSta
 
   let picnicExists = false
   const picnic = {}
+
+  let currButton = 4
   
   const setup = (p5, canvasParentRef) => {
     reset()
-    p5.createCanvas(sqsize*w+2*offsetx, sqsize*h+2*offsety).parent(canvasParentRef);
-    const startButton = p5.createButton('start');
-    startButton.position(p5.width-startButton.width-10, 10);
-    startButton.mousePressed(start);
-    const resetButton = p5.createButton('reset');
-    resetButton.position(p5.width-resetButton.width-10, 20+startButton.height);
-    resetButton.mousePressed(reset);
+    p5.createCanvas(sqsize*w+offright+offleft, sqsize*h+offtop+offbottom).parent(canvasParentRef);
+    const buttonTexts = [
+      'Start', 'Reset', '0.25x', '0.5x', '1x', '2x', '4x', '8x',
+    ]
+    const buttons = []
+    const buttonFuncs = [
+      start, reset, () => {
+        buttons[2].style('background-color',p5.color(190))
+        buttons[currButton].style('background-color',p5.color(230))
+        p5.frameRate(1)
+        currButton = 2
+      }, () => {
+        buttons[3].style('background-color',p5.color(190))
+        buttons[currButton].style('background-color',p5.color(230))
+        p5.frameRate(2)
+        currButton = 3
+      }, () => {
+        buttons[4].style('background-color',p5.color(190))
+        buttons[currButton].style('background-color',p5.color(230))
+        p5.frameRate(4)
+        currButton = 4
+      }, () => {
+        buttons[5].style('background-color',p5.color(190))
+        buttons[currButton].style('background-color',p5.color(230))
+        p5.frameRate(8)
+        currButton = 5
+      }, () => {
+        buttons[6].style('background-color',p5.color(190))
+        buttons[currButton].style('background-color',p5.color(230))
+        p5.frameRate(16)
+        currButton = 6
+      }, () => {
+        buttons[7].style('background-color',p5.color(190))
+        buttons[currButton].style('background-color',p5.color(230))
+        p5.frameRate(32)
+        currButton = 7
+      }
+    ]
+    // console.log(canvasParentRef)
+    // bWidth = (w*sqsize+2)/buttonTexts.length
+    for (let i = 0; i < buttonTexts.length; i++) {
+      const button = p5.createButton(buttonTexts[i])
+      // button.parent("background")
+      let buttonWidth = bWidth
+      if (i < 2) {
+        buttonWidth *= 3
+      }
+      button.size(buttonWidth)
+      bHeight = button.height
+      let pos
+      if (i < 2) {
+        pos = buttonWidth*(i+2/3)-1
+      } else {
+        pos = buttonWidth*i-1
+      }
+      button.position(pos+offleft,offtop-bHeight-1-(i<2 && bHeight+4))
+      button.mousePressed(buttonFuncs[i])
+      if (i === 4) {
+        button.style('background-color',p5.color(190))
+      } else if (i >= 2) {
+        button.style('background-color',p5.color(230))
+      }
+      if (i >= 2) {
+        button.style('border-style','none')
+        // buttonFuncs.push(setFr(i))
+      }
+      buttons.push(button)
+    }
+    // const startButton = p5.createButton('start');
+    // startButton.position(p5.width-startButton.width-10, 10);
+    // startButton.mousePressed(start);
+    // const resetButton = p5.createButton('reset');
+    // resetButton.position(p5.width-resetButton.width-10, 20+startButton.height);
+    // resetButton.mousePressed(reset);
+    p5.frameRate(4)
   }
+  
+  // const setFr = (i,p5) => {
+  //   () => {
+  //     buttons[i].style('background-color',p5.color(190))
+  //     buttons[currButton].style('background-color',p5.color(230))
+  //     p5.frameRate(2**(i-2))
+  //   }
+  // }
 
   const reset = () => {
     killed = false
     started = false
+    steps = 0
+    painted = 0
     let i = 0
     let j = 0
     let len = gridStr.length
@@ -75,8 +159,8 @@ const LevelCanvas = ({ level, winState, setWin,  stepsState, setSteps, crumbsSta
     w = i
     h = j + 1
     sqsize = Math.min(400/h, 600/w)
-    offsetx = sqsize
-    offsety = sqsize
+    // offsetx = sqsize
+    // offsety = sqsize
     for (let i = 0; i < h; i++) {
       grid[i] = new Array(w);
       grid[i].fill(0)
@@ -106,9 +190,9 @@ const LevelCanvas = ({ level, winState, setWin,  stepsState, setSteps, crumbsSta
   
   const mousePressed = (p5) => {
     if (!started) {
-      if (p5.mouseX > offsetx && p5.mouseX < p5.width-offsetx && p5.mouseY > offsety && p5.mouseY < p5.height - offsety) {
-        mouseInX = Math.floor((p5.mouseX - offsetx) / sqsize)
-        mouseInY = Math.floor((p5.mouseY - offsety) / sqsize)
+      if (p5.mouseX > offleft && p5.mouseX < p5.width-offright && p5.mouseY > offtop && p5.mouseY < p5.height - offbottom) {
+        mouseInX = Math.floor((p5.mouseX - offleft) / sqsize)
+        mouseInY = Math.floor((p5.mouseY - offtop) / sqsize)
         grid[mouseInY][mouseInX] = 1 - grid[mouseInY][mouseInX]
         mode = grid[mouseInY][mouseInX]
         painted += grid[mouseInY][mouseInX]*2-1
@@ -118,9 +202,9 @@ const LevelCanvas = ({ level, winState, setWin,  stepsState, setSteps, crumbsSta
   
   const mouseDragged = (p5) => {
     if (!started) {
-      if (p5.mouseX > offsetx && p5.mouseX < p5.width-offsetx && p5.mouseY > offsety && p5.mouseY < p5.height - offsety) {
-        const x = Math.floor((p5.mouseX - offsetx) / sqsize)
-        const y = Math.floor((p5.mouseY - offsety) / sqsize)
+      if (p5.mouseX > offleft && p5.mouseX < p5.width-offright && p5.mouseY > offtop && p5.mouseY < p5.height - offbottom) {
+        const x = Math.floor((p5.mouseX - offleft) / sqsize)
+        const y = Math.floor((p5.mouseY - offtop) / sqsize)
         if (mouseInX === x && mouseInY === y) {
           return
         }
@@ -181,9 +265,7 @@ const LevelCanvas = ({ level, winState, setWin,  stepsState, setSteps, crumbsSta
   const draw = (p5) => {
     p5.background(255)
     p5.push()
-    p5.text(`Steps: ${steps}`,offsetx,15)
-    p5.text(`Painted: ${painted}`,offsetx,35)
-    p5.translate(offsetx,offsety)
+    p5.translate(offleft,offtop)
     p5.stroke(0)
     for (let i = 0; i < h; i++) {
       for (let j = 0; j < w; j++) {
@@ -210,6 +292,16 @@ const LevelCanvas = ({ level, winState, setWin,  stepsState, setSteps, crumbsSta
     if (killed) {
       console.log(checkWin())
     }
+    p5.fill(255)
+    p5.noStroke()
+    // p5.rect(0,-2*bHeight,2*bWidth-1,bHeight-1)
+    // p5.rect(0,-bHeight,2*bWidth-1,bHeight-1)
+    p5.fill(0)
+    p5.push()
+    p5.textSize(16)
+    p5.text(`Steps: ${steps}`,0,-bHeight-11)
+    p5.text(`Crumbs: ${painted}`,0,-10)
+    p5.pop()
     p5.pop()
   }
 

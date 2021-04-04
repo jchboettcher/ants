@@ -7,7 +7,7 @@ import client from './client'
 import HomePage from './containers/HomePage'
 import LevelPage from './containers/LevelPage'
 
-const numLevels = 10
+const numLevels = 2
 
 const App = () => (
   <Router basename="/ants">

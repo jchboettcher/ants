@@ -13,7 +13,7 @@ const Level = ({ level }) => {
     document.title = `Ants - Level ${level}`
   }, [])
   return (
-    <BackgroundDiv>
+    <BackgroundDiv id="background">
       <LevelCanvas level={level} />
     </BackgroundDiv>
     // <BackgroundDiv>
