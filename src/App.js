@@ -6,8 +6,9 @@ import theme from './theme'
 import client from './client'
 import HomePage from './containers/HomePage'
 import LevelPage from './containers/LevelPage'
+import gridStrs from './containers/Level/levels'
 
-const numLevels = 2
+const numLevels = gridStrs.length
 
 const App = () => (
   <Router basename="/ants">

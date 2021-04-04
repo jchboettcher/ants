@@ -2,78 +2,58 @@ import styled from 'styled-components'
 
 export const BackgroundDiv = styled.div`
   display: flex;
-  justify-content: left;
-  width: 100%;
-  height: 100%;
-  margin: 0;
+  flex-direction: column;
+  /* margin: 100px; */
   /* background-color: palegoldenrod; */
 `
 
-export const LeaderboardDiv = styled.div`
+export const LevelDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+
+export const HowToDiv = styled.div`
+  padding: 5px 0px 30px 30px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  padding: 10px;
-  margin: 20px auto 100px auto;
-  /* border: rgba(40,40,40,0.5) 4px; */
-  /* border-style: solid; */
-  /* height: auto; */
-  text-align: center;
+`
+
+export const CenterDiv = styled.div`
+  display: flex;
+  justify-content: left;
+  /* width: 100vw;
+  height: 100%; */
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-top: 10px;
+`
+
+export const Title = styled.h1`
+  font-weight: bold;
+  font-size: 40px;
   font-family: Arial, Helvetica, sans-serif;
-  /* position: fixed; */
-  top: 2vh;
-  /* background-color: rgba(108,128,150,0.8); */
-  /* animation: color-change 40s infinite;
-  position: center;
-  @keyframes color-change {
-    0% { background-color: rgba(100,128,150,0.8); }
-    20% { background-color: rgba(128,128,100,0.8); }
-    40% { background-color: rgba(100,128,128,0.8); }
-    60% { background-color: rgba(150,100,128,0.8); }
-    80% { background-color: rgba(128,150,100,0.8); }
-    100% { background-color: rgba(108,128,150,0.8); }
-  } */
+  margin-bottom: 0;
 `
 
-export const StyledTd = styled.td`
-  padding: 20px;
-  border: solid;
-  border-color: palegoldenrod;
-  border-width: 5px;
-`
-
-export const RankTd = styled(StyledTd)`
-  width: 52px;
-`
-
-export const NameTd = styled(StyledTd)`
-  width: 185px;
-`
-
-export const PuzzTd = styled(StyledTd)`
-  width: 140px;
-`
-
-export const TimeTd = styled(StyledTd)`
-  width: 200px;
-`
-
-export const StyledTable = styled.table`
-  border-collapse: collapse;
-  /* margin: 10px; */
-`
-
-export const StyledTableBody = styled.tbody`
-  background-color: rgb(10,150,10);
-`
-
-export const StyledTableHead = styled.thead`
+export const Subtitle = styled.h3`
   font-weight: bold;
   font-size: 18px;
-  background-color: rgb(10,120,10);
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 0;
+  margin-bottom: 0;
 `
 
-export const LeaderboardHeader = styled.h1`
-  font-weight: bold;
-  font-size: 45px;
+export const Paragraph = styled.p`
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+`
+
+export const HowToPara = styled.p`
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin-bottom: 0px;
+`
+
+export const EmptyDiv = styled.div`
+  height: 25px;
 `
