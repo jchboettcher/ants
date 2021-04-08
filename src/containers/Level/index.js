@@ -3,8 +3,8 @@ import Sketch from 'react-p5'
 // import Scores from './components/Scores'
 import {
   // LeaderboardDiv,
-  BackgroundDiv, CenterDiv, LevelDiv,
-  Paragraph, Title, 
+  BackgroundDiv, CenterDiv, LevelDiv, HowToPara,
+  Paragraph, Title, Subtitle, HowToDiv, EmptyDiv
   // LeaderboardHeader,
 } from './styles'
 import LevelCanvas from './components/LevelCanvas'
@@ -24,6 +24,7 @@ const Level = ({ level }) => {
     <CenterDiv>
       <BackgroundDiv>
           <Title>Picnic Ants</Title>
+          <Subtitle style={{fontStyle: 'italic', fontWeight: 'normal'}}>Logic game by Jack Boettcher</Subtitle>
           <Paragraph>
             Picnic Ants is a logic game based largely on <a href="https://en.wikipedia.org/wiki/Langton%27s_ant">Langton's Ant</a>.
             The goal is to get the ants to their picnic without leaving a mess along the way.
@@ -34,7 +35,15 @@ const Level = ({ level }) => {
           </Paragraph>
           <LevelDiv>
             <LevelCanvas level={level} />
-            <Description level={level} />
+            <HowToDiv>
+              <Description level={level} />
+              <EmptyDiv style={{height: '40px'}}/>
+              <Subtitle>To be implemented:</Subtitle>
+              <HowToPara>1. Leaderboard for challenge levels-- already have a backend and database set up.</HowToPara>
+              <HowToPara>2. Sandbox-- a playground testing environment.</HowToPara>
+              <HowToPara>3. Reverse mode-- given crumbs, place ants to clean them up.</HowToPara>
+              <HowToPara>4. More levels!</HowToPara>
+            </HowToDiv>
           </LevelDiv>
       </BackgroundDiv>
     </CenterDiv>

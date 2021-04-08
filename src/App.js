@@ -1,6 +1,6 @@
 import React from 'react'
 import { ApolloProvider } from '@apollo/react-hooks'
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
+import { Switch, Route, BrowserRouter as Router, Redirect } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import theme from './theme'
 import client from './client'
@@ -20,7 +20,8 @@ const App = () => (
               exact path={`/:level(${[...Array(numLevels + 1).keys()].join("|").substring(2)})`}
               component={LevelPage}
             />
-            <Route path="/" component={HomePage} />
+            <Route exact path="/" component={HomePage} />
+            <Redirect to='/' />
           </Switch>
         </div>
       </ApolloProvider>

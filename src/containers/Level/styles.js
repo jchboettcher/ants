@@ -46,6 +46,8 @@ export const Subtitle = styled.h3`
 export const Paragraph = styled.p`
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
+  /* margin-top: 10px;
+  margin-bottom: 10px; */
 `
 
 export const HowToPara = styled.p`

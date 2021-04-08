@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  Subtitle, HowToDiv, HowToPara, EmptyDiv
+  Subtitle, HowToPara, EmptyDiv
 } from '../styles'
 
 const Description = ({
@@ -10,7 +10,7 @@ const Description = ({
   switch (level) {
     case '1':
       return (
-        <HowToDiv>
+        <>
           <Subtitle>How to play:</Subtitle>
           <HowToPara>
             Ants behave in a very specific way, always in 3 stages. First, all ants modify whether their current square
@@ -38,15 +38,15 @@ const Description = ({
           <Subtitle>
             Go to <a href={`https://jchboettcher.github.io/ants/${nextLevel}`}>next level</a>?
           </Subtitle>
-        </HowToDiv>
+        </>
       )
       break
     case '2':
       return (
-        <HowToDiv>
+        <>
           <Subtitle>New this level:</Subtitle>
           <HowToPara>
-            Let's try with multiple ants! (full how-to <a href="https://jchboettcher.github.io/ants/1">here</a>)
+            Let's try with multiple ants! (full how-to-play <a href="https://jchboettcher.github.io/ants/1">here</a>)
           </HowToPara>
           <EmptyDiv/>
           <Subtitle>Summary:</Subtitle>
@@ -57,15 +57,15 @@ const Description = ({
           <Subtitle>
             Go to <a href={`https://jchboettcher.github.io/ants/${nextLevel}`}>next level</a>?
           </Subtitle>
-        </HowToDiv>
+        </>
       )
       break
     case '3':
       return (
-        <HowToDiv>
+        <>
           <Subtitle>New this level:</Subtitle>
           <HowToPara>
-            Nothing new! (full how-to <a href="https://jchboettcher.github.io/ants/1">here</a>)
+            Nothing new! (full how-to-play <a href="https://jchboettcher.github.io/ants/1">here</a>)
           </HowToPara>
           <EmptyDiv/>
           <Subtitle>Summary:</Subtitle>
@@ -76,16 +76,16 @@ const Description = ({
           <Subtitle>
             Go to <a href={`https://jchboettcher.github.io/ants/${nextLevel}`}>next level</a>?
           </Subtitle>
-        </HowToDiv>
+        </>
       )
       break
     case '4':
       return (
-        <HowToDiv>
+        <>
           <Subtitle>New this level:</Subtitle>
           <HowToPara>
             Here we introduce red ants. Red ants are exactly the same as green ants except they
-            turn the opposite direction in stage 3 ("R/L"). (full how-to <a href="https://jchboettcher.github.io/ants/1">here</a>)
+            turn the opposite direction in stage 3 ("R/L"). (full how-to-play <a href="https://jchboettcher.github.io/ants/1">here</a>)
           </HowToPara>
           <EmptyDiv/>
           <Subtitle>Summary:</Subtitle>
@@ -99,15 +99,15 @@ const Description = ({
           <Subtitle>
             Go to <a href={`https://jchboettcher.github.io/ants/${nextLevel}`}>next level</a>?
           </Subtitle>
-        </HowToDiv>
+        </>
       )
       break
     case '5':
       return (
-        <HowToDiv>
+        <>
           <Subtitle>New this level:</Subtitle>
           <HowToPara>
-            Nothing new! (full how-to <a href="https://jchboettcher.github.io/ants/1">here</a>)
+            Nothing new! (full how-to-play <a href="https://jchboettcher.github.io/ants/1">here</a>)
           </HowToPara>
           <EmptyDiv/>
           <Subtitle>Summary:</Subtitle>
@@ -121,12 +121,12 @@ const Description = ({
           <Subtitle>
             Go to <a href={`https://jchboettcher.github.io/ants/${nextLevel}`}>next level</a>?
           </Subtitle>
-        </HowToDiv>
+        </>
       )
       break
     case '6':
       return (
-        <HowToDiv>
+        <>
           <Subtitle>New this level:</Subtitle>
           <HowToPara>
             Here we introduce an entirely new type of ant-- a picnic ant! Picnic ants have a different 
@@ -138,7 +138,7 @@ const Description = ({
             if there are more than just 2 picnic ants, they all must meet at that same location because in order
             to complete a level, all ants must stop on the same square. Of course, you also still have to end the
             level with no crumbs left. A picnic ant is designated by a dot
-            on its middle segment. Colors still work the same way for picnic ants. (full how-to <a href="https://jchboettcher.github.io/ants/1">here</a>)
+            on its middle segment. Colors still work the same way for picnic ants. (full how-to-play <a href="https://jchboettcher.github.io/ants/1">here</a>)
           </HowToPara>
           <EmptyDiv/>
           <Subtitle>Summary:</Subtitle>
@@ -155,17 +155,17 @@ const Description = ({
           <Subtitle>
             Go to <a href={`https://jchboettcher.github.io/ants/${nextLevel}`}>next level</a>?
           </Subtitle>
-        </HowToDiv>
+        </>
       )
       break
     case '7':
       return (
-        <HowToDiv>
+        <>
           <Subtitle>New this level:</Subtitle>
           <HowToPara>
             Here we introduce a new type of square. Locked squares simply mean that square must be 
             in that state in your initial set up. You cannot toggle whether or not locked squares have crumbs
-            at the start. (full how-to <a href="https://jchboettcher.github.io/ants/1">here</a>)
+            at the start. (full how-to-play <a href="https://jchboettcher.github.io/ants/1">here</a>)
           </HowToPara>
           <EmptyDiv/>
           <Subtitle>Summary:</Subtitle>
@@ -185,15 +185,15 @@ const Description = ({
           <Subtitle>
             Go to <a href={`https://jchboettcher.github.io/ants/${nextLevel}`}>next level</a>?
           </Subtitle>
-        </HowToDiv>
+        </>
       )
       break
     case '8':
       return (
-        <HowToDiv>
+        <>
           <Subtitle>New this level:</Subtitle>
           <HowToPara>
-            Three ants! (full how-to <a href="https://jchboettcher.github.io/ants/1">here</a>)
+            Three ants! (full how-to-play <a href="https://jchboettcher.github.io/ants/1">here</a>)
           </HowToPara>
           <EmptyDiv/>
           <Subtitle>Summary:</Subtitle>
@@ -213,19 +213,19 @@ const Description = ({
           <Subtitle>
             Go to <a href={`https://jchboettcher.github.io/ants/${nextLevel}`}>next level</a>?
           </Subtitle>
-        </HowToDiv>
+        </>
       )
       break
     case '9':
       return (
-        <HowToDiv>
+        <>
           <Subtitle>New this level:</Subtitle>
           <HowToPara>
             Here we introduce another variation on ants-- this time in regards
             to stage 1, the crumb modification. Some ants are messier than others! Ants with a black
             third segment will always leave a crumb in its square, and ants with a white third segment
             will never leave a crumb. The main color still determines its direction change in stage 3 of an ant's movement.
-            (full how-to <a href="https://jchboettcher.github.io/ants/1">here</a>)
+            (full how-to-play <a href="https://jchboettcher.github.io/ants/1">here</a>)
           </HowToPara>
           <EmptyDiv/>
           <Subtitle>Summary:</Subtitle>
@@ -251,15 +251,15 @@ const Description = ({
           <Subtitle>
             Go to <a href={`https://jchboettcher.github.io/ants/${nextLevel}`}>next level</a>?
           </Subtitle>
-        </HowToDiv>
+        </>
       )
       break
     case '10':
       return (
-        <HowToDiv>
+        <>
           <Subtitle>New this level:</Subtitle>
           <HowToPara>
-            CHALLENGE LEVEL! (full how-to <a href="https://jchboettcher.github.io/ants/1">here</a>)
+            CHALLENGE LEVEL! (full how-to-play <a href="https://jchboettcher.github.io/ants/1">here</a>)
           </HowToPara>
           <EmptyDiv/>
           <Subtitle>Summary:</Subtitle>
@@ -285,7 +285,7 @@ const Description = ({
           <Subtitle>
             More levels coming soon!
           </Subtitle>
-        </HowToDiv>
+        </>
       )
       break
     default: return (<></>)
