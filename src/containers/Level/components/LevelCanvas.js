@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Sketch from 'react-p5'
 import gridStrs from '../levels'
 
-const LevelCanvas = ({ level, setWin }) => {
+const LevelCanvas = ({ level }) => {
   
   let w
   let h
@@ -56,7 +56,6 @@ const LevelCanvas = ({ level, setWin }) => {
           i = -1
         } else if (c === "(") {
           let dir = dirs[gridStr[k+1]]
-          // console.log(i,j)
           let typ
           if (gridStr[k+5] === "+") {
             typ = gridStr.substring(k+2,k+6)
@@ -80,8 +79,6 @@ const LevelCanvas = ({ level, setWin }) => {
       w = i
       h = j + 1
       sqsize = 450/w
-      // offsetx = sqsize
-      // offsety = sqsize
       for (let i = 0; i < h; i++) {
         grid[i] = new Array(w);
         grid[i].fill(0)
@@ -134,8 +131,6 @@ const LevelCanvas = ({ level, setWin }) => {
         currButton = 7
       }
     ]
-    // console.log(canvasParentRef)
-    // bWidth = (w*sqsize+2)/buttonTexts.length
     for (let i = 0; i < buttonTexts.length; i++) {
       const button = p5.createButton(buttonTexts[i])
       button.parent(canvasParentRef)
@@ -160,25 +155,10 @@ const LevelCanvas = ({ level, setWin }) => {
       }
       if (i >= 2) {
         button.style('border-style','none')
-        // buttonFuncs.push(setFr(i))
       }
       buttons.push(button)
     }
-    // const startButton = p5.createButton('start');
-    // startButton.position(p5.width-startButton.width-10, 10);
-    // startButton.mousePressed(start);
-    // const resetButton = p5.createButton('reset');
-    // resetButton.position(p5.width-resetButton.width-10, 20+startButton.height);
-    // resetButton.mousePressed(reset);
   }
-  
-  // const setFr = (i,p5) => {
-  //   () => {
-  //     buttons[i].style('background-color',p5.color(190))
-  //     buttons[currButton].style('background-color',p5.color(230))
-  //     p5.frameRate(2**(i-2))
-  //   }
-  // }
   
   const updateAnts = () => {
     ants.forEach(ant => ant.move())
@@ -270,7 +250,6 @@ const LevelCanvas = ({ level, setWin }) => {
         }
       }
       if (stopCount === antCount) {
-        // console.log("killed")
         killed = true
       }
     }
@@ -285,7 +264,6 @@ const LevelCanvas = ({ level, setWin }) => {
     }
     ants.forEach(ant => win &= (ant.x === picnic.x && ant.y === picnic.y))
     won = win
-    // console.log("this happens once")
     winPos = -200
   }
 
@@ -345,7 +323,6 @@ const LevelCanvas = ({ level, setWin }) => {
       p5.vertex(-10,-3)
       p5.endShape(p5.CLOSE)
       p5.fill(254,95,103)
-      // p5.strokeWeight(1)
       p5.line(-6,4.4,-4,4.4)
       p5.line(6,4.4,4,4.4)
       p5.line(-1,4.4,1,4.4)
@@ -408,8 +385,6 @@ const LevelCanvas = ({ level, setWin }) => {
     }
     p5.fill(255)
     p5.noStroke()
-    // p5.rect(0,-2*bHeight,2*bWidth-1,bHeight-1)
-    // p5.rect(0,-bHeight,2*bWidth-1,bHeight-1)
     p5.fill(0)
     p5.push()
     p5.textSize(16)
@@ -418,7 +393,6 @@ const LevelCanvas = ({ level, setWin }) => {
     p5.textSize(28)
     p5.text(`Level ${level}`,0,-2*bHeight-15)
     p5.pop()
-    // console.log(killed)
     if (killed) {
       p5.push()
       if (winPos < p5.height - h*sqsize/4-14) {
@@ -429,14 +403,12 @@ const LevelCanvas = ({ level, setWin }) => {
       p5.stroke(0)
       p5.strokeWeight(2)
       p5.rectMode(p5.CENTER)
-      // console.log(w*sqsize/2)
       p5.rect(0,0,315,90)
       p5.textSize(30)
       p5.fill(0)
       p5.strokeWeight(0)
       p5.textAlign(p5.CENTER,p5.CENTER)
       p5.text(won ? "You passed!" : "Try again?",0,0)
-      // p5.point(w*sqsize/2,h*sqsize/2)
       p5.pop()
     }
     p5.pop()
@@ -453,7 +425,6 @@ const LevelCanvas = ({ level, setWin }) => {
       this.ymoves = [0,1,0,-1]
       this.stopped = false
       this.picnicAnt = !!this.type[3]
-      // this.colors = [color(0,255,0),color(255,0,0),color(0,0,255)]
     }
   
     stop() {
@@ -466,27 +437,18 @@ const LevelCanvas = ({ level, setWin }) => {
       }
       const flip = this.type[2]
   
-      // flip
       switch (flip) {
         case 'F':
           grid[this.y][this.x] = 1 - grid[this.y][this.x]
           painted += grid[this.y][this.x]*2-1
-          // needFlip.push([this.y,this.x])
-          // painted -= grid[this.y][this.x]*2-1
           break
         case 'W':
           painted -= grid[this.y][this.x]
           grid[this.y][this.x] = 0
-          // if (!!grid[this.y][this.x]) {
-          //   needFlip.push([this.y,this.x])
-          // }
           break
         case 'B':
           painted += 1 - grid[this.y][this.x]
           grid[this.y][this.x] = 1
-          // if (!grid[this.y][this.x]) {
-          //   needFlip.push([this.y,this.x])
-          // }
           break
       }
   
@@ -512,9 +474,6 @@ const LevelCanvas = ({ level, setWin }) => {
     }
   
     show(p5) {
-      // if (this.x >= w || this.x < 0 || this.y >= h || this.y < 0) {
-      //   return
-      // }
       p5.push()
       p5.translate((this.x+0.5)*sqsize,(this.y+0.5)*sqsize)
       p5.rotate(this.dir*p5.HALF_PI)
@@ -527,7 +486,6 @@ const LevelCanvas = ({ level, setWin }) => {
         p5.fill(0,255,0)
       }
       p5.scale(sqsize/20)
-      // scale(10)
       p5.ellipse(-1,0,3.5)
       p5.ellipse(2.5,0,3.5)
       p5.push()
@@ -563,12 +521,6 @@ const LevelCanvas = ({ level, setWin }) => {
 
   return (
     <Sketch setup={setup} draw={draw} mousePressed={mousePressed} mouseDragged={mouseDragged} />
-    // <BackgroundDiv>
-    //   <LeaderboardDiv>
-    //     <LeaderboardHeader>Leaderboard</LeaderboardHeader>
-    //     <Scores/>
-    //   </LeaderboardDiv>
-    // </BackgroundDiv>
   )
 }
 

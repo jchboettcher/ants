@@ -1,11 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import Sketch from 'react-p5'
-// import Scores from './components/Scores'
+import React, { useEffect } from 'react'
 import {
-  // LeaderboardDiv,
   BackgroundDiv, CenterDiv, LevelDiv, HowToPara,
   Paragraph, Title, Subtitle, HowToDiv, EmptyDiv
-  // LeaderboardHeader,
 } from './styles'
 import LevelCanvas from './components/LevelCanvas'
 import Description from './components/Description'
@@ -14,12 +10,6 @@ const Level = ({ level }) => {
   useEffect(() => {
     document.title = `Picnic Ants - Level ${level}`
   }, [])
-  // const [win, setWin] = useState(false)
-  // let won = false
-  // if (win && !won) {
-  //   won = true
-  //   alert("win")
-  // }
   return (
     <CenterDiv>
       <BackgroundDiv>
@@ -47,12 +37,6 @@ const Level = ({ level }) => {
           </LevelDiv>
       </BackgroundDiv>
     </CenterDiv>
-    // <BackgroundDiv>
-    //   <LeaderboardDiv>
-    //     <LeaderboardHeader>Leaderboard</LeaderboardHeader>
-    //     <Scores/>
-    //   </LeaderboardDiv>
-    // </BackgroundDiv>
   )
 }
 

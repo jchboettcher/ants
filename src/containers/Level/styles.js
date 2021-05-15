@@ -3,8 +3,6 @@ import styled from 'styled-components'
 export const BackgroundDiv = styled.div`
   display: flex;
   flex-direction: column;
-  /* margin: 100px; */
-  /* background-color: palegoldenrod; */
 `
 
 export const LevelDiv = styled.div`
@@ -21,8 +19,6 @@ export const HowToDiv = styled.div`
 export const CenterDiv = styled.div`
   display: flex;
   justify-content: left;
-  /* width: 100vw;
-  height: 100%; */
   margin-left: 60px;
   margin-right: 60px;
   margin-top: 10px;
@@ -46,8 +42,6 @@ export const Subtitle = styled.h3`
 export const Paragraph = styled.p`
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
-  /* margin-top: 10px;
-  margin-bottom: 10px; */
 `
 
 export const HowToPara = styled.p`
