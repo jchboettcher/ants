@@ -14,7 +14,10 @@ const Level = ({ level }) => {
     <CenterDiv>
       <BackgroundDiv>
           <Title>Picnic Ants</Title>
-          <Subtitle style={{fontStyle: 'italic', fontWeight: 'normal'}}>Logic game by Jack Boettcher</Subtitle>
+          <Subtitle style={{fontStyle: 'italic', fontWeight: 'normal'}}>
+            Logic game by Jack Boettcher
+            (<a href="https://github.com/jchboettcher/ants">source code</a>)
+          </Subtitle>
           <Paragraph>
             Picnic Ants is a logic game based largely on <a href="https://en.wikipedia.org/wiki/Langton%27s_ant">Langton's Ant</a>.
             The goal is to get the ants to their picnic without leaving a mess along the way.
