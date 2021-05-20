@@ -27,25 +27,25 @@ export const CenterDiv = styled.div`
 export const Title = styled.h1`
   font-weight: bold;
   font-size: 40px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: ${({theme}) => theme.fonts.primary.family};
   margin-bottom: 0;
 `
 
 export const Subtitle = styled.h3`
   font-weight: bold;
   font-size: 18px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: ${({theme}) => theme.fonts.primary.family};
   margin-top: 0;
   margin-bottom: 0;
 `
 
 export const Paragraph = styled.p`
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: ${({theme}) => theme.fonts.primary.family};
   font-size: 15px;
 `
 
 export const HowToPara = styled.p`
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: ${({theme}) => theme.fonts.primary.family};
   font-size: 15px;
   margin-bottom: 0px;
 `
